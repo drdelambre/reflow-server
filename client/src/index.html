@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>{{ projectName }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+(()=>{"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js")});const e={browser:navigator.userAgent,connection:navigator.connection.effectiveType,firstPaint:0,firstMeaningful:0,interactive:0,render:0},t=new PerformanceObserver(t=>{t.getEntries().forEach(t=>{"paint"==t.entryType&&("first-paint"===t.name&&(e.firstPaint=Math.round(t.startTime+t.duration)),"first-contentful-paint"===t.name&&(e.firstMeaningful=Math.round(t.startTime+t.duration)))})});window.addEventListener("load",t=>{setTimeout(()=>{e.interactive=Math.round(performance.timing.domInteractive-performance.timing.navigationStart),e.render=Math.round(performance.timing.loadEventEnd-performance.timing.domContentLoadedEventEnd),fetch("/api/metric",{headers:{"Content-Type":"application/json","x-access-token":(localStorage.getItem("token")||'').slice(3,-3)},method:"POST",body:JSON.stringify(e)})},10)},!1),t.observe({entryTypes:["resource","paint"]})})();
+        </script>
+    </head>
+    <body>
+        <div id="root" style="height: 100%"></div>
+    </body>
+</html>

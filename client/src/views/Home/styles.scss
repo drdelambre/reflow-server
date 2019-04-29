@@ -1,0 +1,89 @@
+@import '~views/mixins.scss';
+
+:global html {
+    height: 100%;
+}
+
+:global body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.home {
+    height: 100%;
+    background-color: #fffdf8;
+    color: #1B140D;
+    padding: 0 64px;
+    position: relative;
+
+    @media (max-height: 680px) {
+        height: auto;
+    }
+}
+
+.wrap {
+    width: 900px;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    @media (max-height: 680px), (max-width: 1030px) {
+        top: 0;
+        transform: none;
+        padding: 64px 0;
+    }
+
+    @media (max-width: 1030px) {
+        width: 540px;
+    }
+}
+
+.left {
+    float: left;
+    width: 540px;
+    margin-right: 24px;
+
+    @media (max-width: 1030px) {
+        float: none;
+        width: auto;
+        margin-right: 0;
+    }
+}
+
+.right {
+    overflow: hidden;
+
+    @media (max-width: 1030px) {
+        width: auto;
+        margin-top: 32px;
+    }
+}
+
+.header {
+	background: #CBE673;
+	padding: 60px 18px 24px;
+    margin: 0;
+    font-family: 'montserrat';
+    font-size: 38px;
+}
+
+.body {
+    font-family: 'lato';
+    font-size: 18px;
+    font-weight: normal;
+    max-width: 500px;
+    margin: 18px auto;
+
+    strong {
+        font-weight: bold;
+        margin: 0 4px;
+    }
+}

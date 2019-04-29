@@ -1,0 +1,36 @@
+@import '~views/mixins.scss';
+
+.main {
+    clear: both;
+}
+
+.inp {
+    width: 33%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding-right: 8px;
+}
+
+.inpWrap {
+    overflow: hidden;
+}
+
+.button {
+    font-family: 'lato';
+    color: #1B140D;
+    background: #CBE673;
+    float: right;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 18px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    text-align: center;
+    width: 72px;
+    cursor: pointer;
+    transition: all;
+
+    &:active {
+        transform: scale(0.95);
+    }
+}

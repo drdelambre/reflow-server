@@ -1,0 +1,45 @@
+@import '~views/mixins.scss';
+
+.stops {
+    height: 524px;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid #ffe785;
+    border-bottom: none;
+    margin-top: 5px;
+}
+
+.button {
+    font-family: 'lato';
+    color: #1B140D;
+    background: #CBE673;
+    padding: 4px 12px;
+    font-size: 18px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    width: 50%;
+    user-select: none;
+
+    span {
+        transform-origin: center;
+        transition: transform 0.2s;
+        display: inline-block;
+    }
+
+    &:active {
+        span {
+            transform: scale(0.95);
+        }
+    }
+
+    &:first-of-type {
+        border-radius: 0 0 0 4px;
+        border-right: 2px solid #afd926;
+    }
+
+    &:last-of-type {
+        border-radius: 0 0 4px 0;
+    }
+}

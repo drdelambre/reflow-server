@@ -1,0 +1,87 @@
+@import '~views/mixins.scss';
+
+.main {
+    padding: 8px;
+
+    &:nth-of-type(2n) {
+        background: #fffae5;
+    }
+}
+
+.edit {
+    composes: main;
+    text-align: right;
+}
+
+.button {
+    font-family: 'lato';
+    color: #1B140D;
+    background: #CBE673;
+    padding: 4px 12px;
+    font-size: 18px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    float: right;
+    margin-left: 8px;
+}
+
+.buttonGroup {
+    float: right;
+    margin-left: 16px;
+    margin-top: 5px;
+}
+
+.groupButton {
+    composes: button;
+    margin-left: 4px;
+    float: none;
+    display: inline-block;
+}
+
+.groupDanger {
+    composes: groupButton;
+    background: #ff8f57;
+}
+
+.value {
+    text-align: right;
+    font-family: 'lato';
+    color: #1B140D;
+    position: relative;
+    overflow: hidden;
+    font-size: 24px;
+
+    &:before {
+        content: '';
+        float: right;
+        font-size: 14px;
+        margin-top: 3px;
+        margin-left: 4px;
+        width: 15px;
+    }
+
+    label {
+        font-size: 12px;
+        margin-top: -6px;
+        display: block;
+    }
+}
+
+.stopValue {
+    composes: value;
+
+    &:before {
+        content: '\00b0 C';
+    }
+}
+
+.dwellValue {
+    composes: value;
+
+    &:before {
+        content: 'S';
+    }
+}

@@ -1,0 +1,33 @@
+@import '~views/mixins.scss';
+
+.inpWrap {
+    overflow: hidden;
+    font-family: 'lato';
+    color: #1B140D;
+
+    input {
+        border-radius: 4px;
+        border: 1px solid #ffe785;
+        font-size: 18px;
+        font-family: inherit;
+        background: #fff;
+        display: inline-block;
+        width: 100%;
+        color: inherit;
+        outline: none;
+        outline-color: transparent;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 3px 8px;
+        text-align: inherit;
+    }
+}
+
+.label {
+    font-family: 'lato';
+    font-size: 12px;
+    color: #1B140D;
+    margin: 0 8px;
+    position: relative;
+    top: -4px;
+}

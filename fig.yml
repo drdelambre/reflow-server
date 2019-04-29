@@ -1,0 +1,39 @@
+version: "3.4"
+
+services:
+    nginx:
+        image: nginx:mainline
+        links:
+            - "api:api"
+            - "client:client"
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - 80:80
+            - 443:443
+
+    client:
+        build: ./client
+        restart: on-failure
+        volumes:
+            - ./client/src:/repo/src
+        environment:
+            - NODE_ENV=development
+        command: "npm run start"
+
+    api:
+        build: ./api
+        restart: on-failure
+        volumes:
+            - ./api/src:/repo/src
+        depends_on:
+            - redis
+        links:
+            - "redis:redis"
+        ports:
+            - 8080:8080
+
+    redis:
+        restart: on-failure
+        image: redis
+

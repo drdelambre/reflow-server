@@ -1,0 +1,28 @@
+@import '~views/mixins.scss';
+
+.main {
+    float: right;
+    width: 160px;
+    text-align: right;
+}
+
+.button {
+    font-family: 'lato';
+    color: #1B140D;
+    background: #CBE673;
+    float: right;
+    padding: 4px 12px;
+    margin-left: 8px;
+    border-radius: 4px;
+    font-size: 18px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    text-align: center;
+    width: 72px;
+    cursor: pointer;
+    transition: all;
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
