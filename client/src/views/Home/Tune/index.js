@@ -8,9 +8,9 @@ import style from './styles';
 
 class Tune extends React.Component {
     state = {
-        kp: '300.0',
-        ki: '50.0',
-        kd: '600.0'
+        kp: '355.0',
+        ki: '0',
+        kd: '60.0'
     };
 
     componentDidMount() {

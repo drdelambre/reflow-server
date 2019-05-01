@@ -4,13 +4,13 @@ import {
     watch as watchPrefix
 } from 'stores/prefix';
 
-const MAX_ENTRIES = 800;
+const MAX_AGE = 5 * 60 * 1000;
 
 class TempCache extends Cache {
     constructor(prefix) {
         super({
             key: `temp-get-${prefix}`,
-            channel: 'memory',
+            channel: 'session',
             expiration: 5 * 60 * 1000
         });
     }
@@ -38,7 +38,9 @@ export function push(entry) {
             .then((prefix) => {
                 const cache = new TempCache(prefix);
 
-                let arr = [];
+                let arr = [],
+                    now = new Date(),
+                    ni = 0;
 
                 if (cache.cached) {
                     arr = cache.cached.slice(0);
@@ -46,8 +48,12 @@ export function push(entry) {
 
                 arr.push(entry);
 
-                if (arr.length > MAX_ENTRIES) {
-                    arr = arr.slice(arr.length - MAX_ENTRIES);
+                while (ni < arr.length) {
+                    if (now - new Date(arr[ni].t) < MAX_AGE) {
+                        arr = arr.slice(ni);
+                        break;
+                    }
+                    ni++;
                 }
 
                 cache.populate(arr);
